@@ -24,4 +24,17 @@ flutter pub get
 ```
 flutter run
 ```
- 
+
+####
+```
+- Email: test@gmail.com 
+- Password: test321
+```
+
+#### 
+<img width="300px" height="450" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/login_page.png"  align="left"/>
+<img width="300px" height="450" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/register_page.png"  align="left"/>
+
+
+
+
