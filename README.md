@@ -32,9 +32,10 @@ flutter run
 ```
 
 #### 
-<img width="300px" height="500" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/login_page.png"  align="left"/>
-<img width="300px" height="500" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/register_page.png"  align="left"/>
-
+ <p align="center">
+<img width="300px" height="500" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/login_page.png"  />
+<img width="300px" height="500" src="https://github.com/eminemtnn27/flutter_firebase_auth/blob/main/register_page.png"   />
+ </p>
 
 
 
