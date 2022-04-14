@@ -318,8 +318,12 @@ class _LoginState extends State<Login> {
                                           MaterialButton(
                                             minWidth: 10,
                                             color: Colors.white,
-                                            onPressed: ()      {
-                                             signInWithFacebook();
+                                            onPressed: ()      async {
+                                             await signInWithFacebook();
+                                             Navigator.push(
+                                                 context,
+                                                 MaterialPageRoute(
+                                                     builder: (_) => Home()));
                                             },
                                             child: Image.asset(
                                               'assets/logos/facebook.png',
