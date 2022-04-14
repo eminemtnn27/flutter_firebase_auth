@@ -20,7 +20,6 @@ class _LoginState extends State<Login> {
   String userEmail='';
   bool isload = false;
   bool _passwordVisible = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -305,9 +304,11 @@ class _LoginState extends State<Login> {
                                           MaterialButton(
                                             minWidth: 10,
                                             color: Colors.white,
-                                            onPressed: () {
-                                              GoogleSignIn().signIn();
-                                            },
+                                            onPressed: () async {
+                                               await GoogleSignIn().signIn().then((value) =>
+                                               Navigator.push(context,MaterialPageRoute(
+                                                   builder: (_) => Home())));
+                                               },
                                             child: Image.asset(
                                               'assets/logos/google.png',
                                               height: 30,
@@ -383,6 +384,7 @@ class _LoginState extends State<Login> {
             ),
     );
   }
+
   Future<UserCredential> signInWithFacebook() async {
     final LoginResult loginResult = await FacebookAuth.instance.login(
       permissions: ['email','public_profile']
