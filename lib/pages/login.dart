@@ -2,8 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_firebase_auth/Home.dart';
 import 'package:flutter_firebase_auth/pages/register.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -15,6 +17,7 @@ class _LoginState extends State<Login> {
   final _auth = FirebaseAuth.instance;
   String email = '';
   String password = '';
+  String userEmail='';
   bool isload = false;
   bool _passwordVisible = false;
 
@@ -302,9 +305,11 @@ class _LoginState extends State<Login> {
                                           MaterialButton(
                                             minWidth: 10,
                                             color: Colors.white,
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              GoogleSignIn().signIn();
+                                            },
                                             child: Image.asset(
-                                              'assets/logos/google.jpg',
+                                              'assets/logos/google.png',
                                               height: 30,
                                               width: 30,
                                             ),
@@ -313,9 +318,11 @@ class _LoginState extends State<Login> {
                                           MaterialButton(
                                             minWidth: 10,
                                             color: Colors.white,
-                                            onPressed: () {},
+                                            onPressed: ()      {
+                                             signInWithFacebook();
+                                            },
                                             child: Image.asset(
-                                              'assets/logos/facebook.jpg',
+                                              'assets/logos/facebook.png',
                                               height: 30,
                                               width: 30,
                                             ),
@@ -371,5 +378,14 @@ class _LoginState extends State<Login> {
               ),
             ),
     );
+  }
+  Future<UserCredential> signInWithFacebook() async {
+    final LoginResult loginResult = await FacebookAuth.instance.login(
+      permissions: ['email','public_profile']
+    );
+    final OAuthCredential facebookAuthCredential = FacebookAuthProvider.credential(loginResult.accessToken!.token);
+    final userData=await FacebookAuth.instance.getUserData();
+     userEmail=userData["email"];
+    return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
   }
 }

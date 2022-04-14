@@ -36,6 +36,7 @@ dependencies:
   google_fonts: ^2.3.1
   font_awesome_flutter: ^10.1.0
   google_sign_in: ^5.2.4
+  flutter_facebook_auth: ^4.2.1
 fonts:
     - family: Raleway
       fonts:
@@ -69,8 +70,8 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
    assets:
-    - assets/logos/google.jpg
-    - assets/logos/facebook.jpg 
+    - assets/logos/google.png
+    - assets/logos/facebook.png
     - assets/logos/favicon_1.png
     - assets/logos/back.jpg
     - assets/logos/leaf.png
